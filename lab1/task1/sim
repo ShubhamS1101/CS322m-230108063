@@ -1,0 +1,75 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_00000251ec96bd40 .scope module, "tb_comparator_1bit" "tb_comparator_1bit" 2 3;
+ .timescale -9 -12;
+v00000251ec96b470_0 .var "A", 0 0;
+v00000251ec96b510_0 .var "B", 0 0;
+v00000251ec9f2830_0 .net "o1", 0 0, L_00000251ec9696f0;  1 drivers
+v00000251eca6d390_0 .net "o2", 0 0, L_00000251ec9f2eb0;  1 drivers
+v00000251eca6d930_0 .net "o3", 0 0, L_00000251ec9f28d0;  1 drivers
+S_00000251ec96ad10 .scope module, "uut" "comparator_1bit" 2 8, 3 1 0, S_00000251ec96bd40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "o1";
+    .port_info 3 /OUTPUT 1 "o2";
+    .port_info 4 /OUTPUT 1 "o3";
+L_00000251ec96ab80 .functor NOT 1, v00000251ec96b510_0, C4<0>, C4<0>, C4<0>;
+L_00000251ec9696f0 .functor AND 1, v00000251ec96b470_0, L_00000251ec96ab80, C4<1>, C4<1>;
+L_00000251eca25fd0 .functor XOR 1, v00000251ec96b470_0, v00000251ec96b510_0, C4<0>, C4<0>;
+L_00000251ec9f2eb0 .functor NOT 1, L_00000251eca25fd0, C4<0>, C4<0>, C4<0>;
+L_00000251ec9f32f0 .functor NOT 1, v00000251ec96b470_0, C4<0>, C4<0>, C4<0>;
+L_00000251ec9f28d0 .functor AND 1, L_00000251ec9f32f0, v00000251ec96b510_0, C4<1>, C4<1>;
+v00000251ec9f30d0_0 .net "A", 0 0, v00000251ec96b470_0;  1 drivers
+v00000251ec96aea0_0 .net "B", 0 0, v00000251ec96b510_0;  1 drivers
+v00000251ec969650_0 .net *"_ivl_0", 0 0, L_00000251ec96ab80;  1 drivers
+v00000251ec96aae0_0 .net *"_ivl_4", 0 0, L_00000251eca25fd0;  1 drivers
+v00000251ec96b1f0_0 .net *"_ivl_8", 0 0, L_00000251ec9f32f0;  1 drivers
+v00000251ec96b290_0 .net "o1", 0 0, L_00000251ec9696f0;  alias, 1 drivers
+v00000251ec96b330_0 .net "o2", 0 0, L_00000251ec9f2eb0;  alias, 1 drivers
+v00000251ec96b3d0_0 .net "o3", 0 0, L_00000251ec9f28d0;  alias, 1 drivers
+    .scope S_00000251ec96bd40;
+T_0 ;
+    %vpi_call 2 17 "$dumpfile", "comparator_1bit.vcd" {0 0 0};
+    %vpi_call 2 18 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000251ec96bd40 {0 0 0};
+    %vpi_call 2 20 "$display", "A B | o1(A>B) o2(A==B) o3(A<B)" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000251ec96b470_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000251ec96b510_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 21 "$display", "%b %b |   %b      %b       %b", v00000251ec96b470_0, v00000251ec96b510_0, v00000251ec9f2830_0, v00000251eca6d390_0, v00000251eca6d930_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000251ec96b470_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000251ec96b510_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 22 "$display", "%b %b |   %b      %b       %b", v00000251ec96b470_0, v00000251ec96b510_0, v00000251ec9f2830_0, v00000251eca6d390_0, v00000251eca6d930_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000251ec96b470_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000251ec96b510_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 23 "$display", "%b %b |   %b      %b       %b", v00000251ec96b470_0, v00000251ec96b510_0, v00000251ec9f2830_0, v00000251eca6d390_0, v00000251eca6d930_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000251ec96b470_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000251ec96b510_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 24 "$display", "%b %b |   %b      %b       %b", v00000251ec96b470_0, v00000251ec96b510_0, v00000251ec9f2830_0, v00000251eca6d390_0, v00000251eca6d930_0 {0 0 0};
+    %vpi_call 2 26 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test.v";
+    "main.v";
