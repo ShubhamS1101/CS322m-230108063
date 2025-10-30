@@ -2,9 +2,7 @@
 
 **Course:** CS322M — Digital Logic and Computer Architecture  
 **Instructor:** Dr. Satyajit Das, IIT Guwahati  
-**Student Name:** <Your Name>  
-**Roll No.:** <Your Roll No.>  
-**Repository:** rvx10p_<rollno>  
+ 
 
 ---
 
